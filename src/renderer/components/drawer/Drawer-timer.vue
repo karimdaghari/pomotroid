@@ -6,33 +6,16 @@
       <p class="Setting-value">{{ localTimeWork + ':00' }}</p>
       <div class="Slider-wrapper">
         <input
-          v-if="localTimeWork <= 40"
           type="range"
           min="1"
           :max="maxTime"
           step="1"
-          class="Slider Slider--red"
-          v-model.number="localTimeWork"
-          @change="setTimeWork($event, 'work')"
-        />
-        <input
-          v-else
-          type="range"
-          min="1"
-          :max="maxTime"
-          step="1"
-          class="Slider Slider--orange"
+          :class="exceedsLimitsSlider"
           v-model.number="localTimeWork"
           @change="setTimeWork($event, 'work')"
         />
         <div
-          v-if="localTimeWork > 40"
-          class="Slider-bar Slider-bar--orange"
-          :style="{ width: calcPercentage(localTimeWork, maxTime) + '%' }"
-        ></div>
-        <div
-          v-else
-          class="Slider-bar Slider-bar--red"
+          :class="exceedsLimitsSliderBar"
           :style="{ width: calcPercentage(localTimeWork, maxTime) + '%' }"
         ></div>
       </div>
@@ -145,6 +128,20 @@ export default {
 
     workRounds() {
       return this.$store.getters.workRounds
+    },
+
+    exceedsLimitsSlider: function() {
+      return {
+        'Slider Slider--orange': this.localTimeWork > 40,
+        'Slider Slider--red': this.localTimeWork <= 40
+      }
+    },
+
+    exceedsLimitsSliderBar: function() {
+      return {
+        'Slider-bar Slider-bar--orange': this.localTimeWork > 40,
+        'Slider-bar Slider-bar--red': this.localTimeWork <= 40
+      }
     }
   },
 
