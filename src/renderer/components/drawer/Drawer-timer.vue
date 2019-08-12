@@ -19,7 +19,10 @@
           :style="{ width: calcPercentage(localTimeWork, maxTime) + '%' }"
         ></div>
       </div>
-      <p v-if="localTimeWork > 40">Warning: For optimal focus, it is best not to exceed 40 minutes</p>
+      <p
+        v-if="localTimeWork > 40"
+        class="Warning"
+      >For optimal focus, it is best not to exceed 40 minutes</p>
     </div>
 
     <div class="Setting-wrapper">
@@ -82,7 +85,7 @@
       </div>
     </div>
 
-    <div class="Setting-wrapper">
+    <div class="Setting-wrapper" style="margin-top: -3px">
       <p class="TextButton" @click="resetDefaults">Reset Defaults</p>
     </div>
   </div>
@@ -218,5 +221,11 @@ export default {
   font-family: 'RobotoMono', monospace;
   font-size: 12px;
   padding: 2px 6px;
+}
+
+.Warning {
+  color: $colorOrange;
+  font-size: 14px;
+  margin-top: 3px;
 }
 </style>
