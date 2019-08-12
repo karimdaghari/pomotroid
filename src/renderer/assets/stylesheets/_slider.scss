@@ -54,6 +54,14 @@
   }
 }
 
+.Slider--orange {
+  &::-webkit-slider-thumb {
+    background-color: $colorOrange;
+    border: 2px solid $colorOrange;
+    -webkit-app-region: no-drag;
+  }
+}
+
 .Slider-bar {
   position: absolute;
   top: calc(50% + 3px);
@@ -74,4 +82,8 @@
 
 .Slider-bar--red {
   background-color: $colorRed;
+}
+
+.Slider-bar--orange {
+  background-color: $colorOrange;
 }

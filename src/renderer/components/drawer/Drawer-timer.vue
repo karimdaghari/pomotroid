@@ -6,6 +6,7 @@
       <p class="Setting-value">{{ localTimeWork + ':00' }}</p>
       <div class="Slider-wrapper">
         <input
+          v-if="localTimeWork <= 40"
           type="range"
           min="1"
           :max="maxTime"
@@ -14,7 +15,23 @@
           v-model.number="localTimeWork"
           @change="setTimeWork($event, 'work')"
         />
+        <input
+          v-else
+          type="range"
+          min="1"
+          :max="maxTime"
+          step="1"
+          class="Slider Slider--orange"
+          v-model.number="localTimeWork"
+          @change="setTimeWork($event, 'work')"
+        />
         <div
+          v-if="localTimeWork > 40"
+          class="Slider-bar Slider-bar--orange"
+          :style="{ width: calcPercentage(localTimeWork, maxTime) + '%' }"
+        ></div>
+        <div
+          v-else
           class="Slider-bar Slider-bar--red"
           :style="{ width: calcPercentage(localTimeWork, maxTime) + '%' }"
         ></div>
