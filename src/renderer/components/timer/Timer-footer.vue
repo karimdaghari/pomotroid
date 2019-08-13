@@ -2,20 +2,11 @@
   <section class="Container Footer">
     <div class="Round-wrapper">
       <p>{{ round + '/' + workRounds }}</p>
-      <p
-        class="TextButton"
-        @click="callForReset"
-      >Reset</p>
+      <p class="TextButton" @click="callForReset">Reset</p>
     </div>
-    <div
-      class="Icon-group"
-      style="position: absolute; right: 0;"
-    >
+    <div class="Icon-group" style="position: absolute; right: 0;">
       <!-- skip -->
-      <div
-        class="Icon-wrapper Icon-wrapper--double--left"
-        @click="skipRound"
-      >
+      <div class="Icon-wrapper Icon-wrapper--double--left" @click="skipRound">
         <svg
           version="1.2"
           baseProfile="tiny"
@@ -29,17 +20,8 @@
           height="15px"
           class="Icon--skip"
         >
-          <polygon
-            fill="#858C99"
-            points="0,0 0,12 6.1,5.9"
-          />
-          <rect
-            x="6.9"
-            y="0"
-            fill="#858C99"
-            width="1.1"
-            height="12"
-          />
+          <polygon fill="#858C99" points="0,0 0,12 6.1,5.9" />
+          <rect x="6.9" y="0" fill="#858C99" width="1.1" height="12" />
         </svg>
       </div>
       <!-- mute -->
@@ -48,10 +30,7 @@
         @click="toggleMute"
         @mouseenter="volumeSliderHidden = false"
       >
-        <transition
-          name="fade"
-          mode="out-in"
-        >
+        <transition name="fade" mode="out-in">
           <svg
             version="1.2"
             baseProfile="tiny"
@@ -92,19 +71,13 @@
               c0.7-1.2,1-2.6,1-4.1c0-4.3-3-7.9-7-8.8v2.1C-450.1,275.1-448,277.8-448,281z M-462.7,272l-1.3,1.3l4.7,4.7h-4.7v6h4l5,5v-6.7
               l4.3,4.3c-0.7,0.5-1.4,0.9-2.3,1.2v2.1c1.4-0.3,2.6-1,3.7-1.8l2,2l1.3-1.3l-9-9L-462.7,272z M-455,273l-2.1,2.1l2.1,2.1V273z"
             />
-            <path
-              fill="none"
-              d="M-467,269h24v24h-24V269z"
-            />
+            <path fill="none" d="M-467,269h24v24h-24V269z" />
           </svg>
         </transition>
       </div>
       <!-- volume slider -->
       <transition name="fade">
-        <div
-          class="Slider-wrapper Slider-wrapper--vert"
-          v-show="!volumeSliderHidden"
-        >
+        <div class="Slider-wrapper Slider-wrapper--vert" v-show="!volumeSliderHidden">
           <input
             type="range"
             min="0"
@@ -112,11 +85,10 @@
             class="Slider"
             v-model="localVolume"
             @change="setVolume"
-          >
+          />
           <div class="Slider-bar Slider-bar--blueGrey"></div>
         </div>
       </transition>
-
     </div>
   </section>
 </template>
@@ -175,7 +147,7 @@ export default {
         } else {
           this.volumeSliderHidden = true
         }
-      }, 6000)
+      }, 999)
     },
 
     skipRound() {
