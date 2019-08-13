@@ -110,7 +110,7 @@
       </app-timer-dial-mini>
     </div>
     <div stye="flex-grow: 2">
-      <section>
+      <section style="display: flex">
         <transition name="fade" mode="out-in">
           <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
             <div class="Button-icon-wrapper">
@@ -200,6 +200,25 @@
             </div>
           </div>
         </transition>
+
+        <div class="Button" style="margin-left: 1em" @click="callForReset">
+          <div class="Button-icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#F6F2EB"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="1 4 1 10 7 10" />
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+            </svg>
+          </div>
+        </div>
       </section>
     </div>
   </div>
@@ -353,6 +372,10 @@ export default {
       this.timer.start()
       this.timerActive = true
       this.timerStarted = true
+    },
+
+    callForReset() {
+      EventBus.$emit('call-timer-reset')
     }
   },
 
