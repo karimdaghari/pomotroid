@@ -72,6 +72,14 @@ ipcMain.on('window-minimize', (event, arg) => {
   }
 })
 
+ipcMain.on('window-miniMode', (event, arg) => {
+  if (arg) {
+    mainWindow.setSize(450, 150)
+  } else {
+    mainWindow.setSize(360, 478)
+  }
+})
+
 ipcMain.on('tray-icon-update', (event, image) => {
   const nativeImg = nativeImage.createFromDataURL(image)
   tray.setImage(nativeImg)
