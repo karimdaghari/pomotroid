@@ -2,6 +2,7 @@
   <nav class="Titlebar">
     <!-- menu -->
     <div
+      v-if="!this.miniMode"
       class="Icon-wrapper Icon-wrapper--titlebar Icon-wrapper--single"
       style="position: absolute;"
       @click="toggleDrawer"
@@ -12,7 +13,7 @@
       </div>
     </div>
 
-    <h1 class="Title">Pomotroid</h1>
+    <h1 class="Title" :style="switchRight">Pomotroid</h1>
 
     <div class="Icon-group" style="position: absolute; top: 0; right: 0;">
       <div
@@ -161,6 +162,16 @@ export default {
 
     minToTray() {
       return this.$store.getters.minToTray
+    },
+
+    switchRight() {
+      if (this.miniMode) {
+        return {
+          paddingRight: '72%'
+        }
+      } else {
+        return {}
+      }
     }
   },
 
