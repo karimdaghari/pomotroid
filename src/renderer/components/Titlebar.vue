@@ -150,11 +150,6 @@
 import { ipcRenderer } from 'electron'
 
 export default {
-  data() {
-    return {
-      miniMode: false
-    }
-  },
   computed: {
     drawerOpen() {
       return this.$store.getters.drawerOpen
@@ -162,6 +157,10 @@ export default {
 
     minToTray() {
       return this.$store.getters.minToTray
+    },
+
+    miniMode() {
+      return this.$store.getters.miniMode
     },
 
     switchRight() {
@@ -190,7 +189,7 @@ export default {
 
     winMiniMode() {
       ipcRenderer.send('window-miniMode', this.miniMode)
-      this.miniMode = !this.miniMode
+      this.$store.dispatch('toggleMiniMode')
     }
   }
 }

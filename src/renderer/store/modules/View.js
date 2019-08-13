@@ -10,6 +10,7 @@ const state = {
   alwaysOnTop: localStore.get('alwaysOnTop'),
   minToTray: localStore.get('minToTray'),
   notifications: localStore.get('notifications'),
+  miniMode: localStore.get('miniMode'),
   os: process.platform
 }
 
@@ -38,6 +39,10 @@ const getters = {
     return state.notifications
   },
 
+  miniMode() {
+    return state.miniMode
+  },
+
   os() {
     return state.os
   }
@@ -54,6 +59,10 @@ const mutations = {
 
   TOGGLE_DRAWER(state) {
     state.drawerOpen = !state.drawerOpen
+  },
+
+  TOGGLE_MINIMODE(state) {
+    state.miniMode = !state.miniMode
   }
 }
 
@@ -68,6 +77,10 @@ const actions = {
 
   toggleDrawer({ commit }) {
     commit('TOGGLE_DRAWER')
+  },
+
+  toggleMiniMode({ commit }) {
+    commit('TOGGLE_MINIMODE')
   }
 }
 

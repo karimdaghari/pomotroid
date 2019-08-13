@@ -1,33 +1,15 @@
 <template>
-  <div class="Timer-wrapper">
+  <div class="Timer-wrapper" v-if="!this.miniMode">
     <app-audio />
     <app-tray-icon />
-    <app-timer-dial
-      :minutes="minutes"
-      :timer="timer"
-      :timerActive="timerActive"
-    >
-      <p
-        class="Dial-time"
-        v-if="!timerStarted"
-      >{{ prettyMinutes }}</p>
-      <p
-        class="Dial-time"
-        v-else
-      >{{ prettyTime }}</p>
+    <app-timer-dial :minutes="minutes" :timer="timer" :timerActive="timerActive">
+      <p class="Dial-time" v-if="!timerStarted">{{ prettyMinutes }}</p>
+      <p class="Dial-time" v-else>{{ prettyTime }}</p>
     </app-timer-dial>
 
     <section class="Container Button-wrapper">
-      <transition
-        name="fade"
-        mode="out-in"
-      >
-        <div
-          class="Button"
-          v-if="!timerStarted"
-          @click="startTimer"
-          :key="'start'"
-        >
+      <transition name="fade" mode="out-in">
+        <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
           <div class="Button-icon-wrapper">
             <svg
               version="1.2"
@@ -42,10 +24,7 @@
               height="15px"
               class="Icon--start"
             >
-              <polygon
-                fill="#F6F2EB"
-                points="0,0 0,15 7.6,7.4 "
-              />
+              <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
             </svg>
           </div>
         </div>
@@ -68,10 +47,7 @@
               xml:space="preserve"
               height="15px"
             >
-              <polygon
-                fill="#F6F2EB"
-                points="0,0 0,15 7.6,7.4 "
-              />
+              <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
             </svg>
           </div>
         </div>
@@ -126,6 +102,9 @@
     <app-timer-footer />
     <app-timer-controller />
   </div>
+  <div v-else class="Timer-wrapper">
+    <p>Mini mode activated</p>
+  </div>
 </template>
 
 <script>
@@ -173,15 +152,17 @@ export default {
       return this.$store.getters.timeWork
     },
 
+    miniMode() {
+      return this.$store.getters.miniMode
+    },
+
     // local
     prettyMinutes() {
       return this.minutes + ':00'
     },
 
     prettyTime() {
-      return `${this.timeRemaining.remainingMinutes}:${
-        this.timeRemaining.remainingSeconds
-      }`
+      return `${this.timeRemaining.remainingMinutes}:${this.timeRemaining.remainingSeconds}`
     },
 
     timeElapsed() {
