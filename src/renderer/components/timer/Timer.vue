@@ -104,7 +104,10 @@
   </div>
   <div v-else style="display: flex; flex-direction: row; padding-left: 18px; padding-right: 18px">
     <div style="flex-grow: 1">
-      <p>Dial sits here</p>
+      <app-timer-dial-mini :minutes="minutes" :timer="timer" :timerActive="timerActive">
+        <p class="Dial-time" v-if="!timerStarted">{{ prettyMinutes }}</p>
+        <p class="Dial-time" v-else>{{ prettyTime }}</p>
+      </app-timer-dial-mini>
     </div>
     <div stye="flex-grow: 2">
       <p>Controls sit here</p>
@@ -118,6 +121,7 @@ import appAudio from '@/components/Audio'
 import appTrayIcon from '@/components/TrayIcon'
 import appTimerController from '@/components/timer/Timer-controller'
 import appTimerDial from '@/components/timer/Timer-dial'
+import appTimerDialMini from '@/components/timer/Timer-dial-mini'
 import appTimerFooter from '@/components/timer/Timer-footer'
 import { EventBus } from '@/utils/event-bus'
 
@@ -127,6 +131,7 @@ export default {
     appTrayIcon,
     appTimerController,
     appTimerDial,
+    appTimerDialMini,
     appTimerFooter
   },
 
