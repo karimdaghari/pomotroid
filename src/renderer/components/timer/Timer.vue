@@ -102,8 +102,13 @@
     <app-timer-footer />
     <app-timer-controller />
   </div>
-  <div v-else class="Timer-wrapper">
-    <p>Mini mode activated</p>
+  <div v-else style="display: flex; flex-direction: row; padding-left: 18px; padding-right: 18px">
+    <div style="flex-grow: 1">
+      <p>Dial sits here</p>
+    </div>
+    <div stye="flex-grow: 2">
+      <p>Controls sit here</p>
+    </div>
   </div>
 </template>
 
