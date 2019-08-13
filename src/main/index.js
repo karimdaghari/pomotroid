@@ -74,11 +74,9 @@ ipcMain.on('window-minimize', (event, arg) => {
 
 ipcMain.on('window-miniMode', (event, arg) => {
   if (arg) {
-    // mainWindow.setSize(480, 150, true)
     mainWindow.setBounds({ width: 450, height: 150 })
     console.log('current size: ', mainWindow.getSize())
   } else {
-    // mainWindow.setSize(360, 480, true)
     mainWindow.setBounds({ width: 360, height: 480 })
   }
 })
