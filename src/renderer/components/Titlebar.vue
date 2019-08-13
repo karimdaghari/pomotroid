@@ -57,7 +57,7 @@
         style="padding-right: 5px"
         @click="winMiniMode"
       >
-        <template v-if="this.miniMode">
+        <template v-if="!this.miniMode">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -151,7 +151,7 @@ import { ipcRenderer } from 'electron'
 export default {
   data() {
     return {
-      miniMode: true
+      miniMode: false
     }
   },
   computed: {
