@@ -6,10 +6,7 @@
       style="position: absolute;"
       @click="toggleDrawer"
     >
-      <div
-        class="Menu-wrapper"
-        :class="drawerOpen ? 'is-collapsed' : ''"
-      >
+      <div class="Menu-wrapper" :class="drawerOpen ? 'is-collapsed' : ''">
         <div class="Menu-line"></div>
         <div class="Menu-line"></div>
       </div>
@@ -17,10 +14,7 @@
 
     <h1 class="Title">Pomotroid</h1>
 
-    <div
-      class="Icon-group"
-      style="position: absolute; top: 0; right: 0;"
-    >
+    <div class="Icon-group" style="position: absolute; top: 0; right: 0;">
       <div
         class="Icon-wrapper Icon-wrapper--titlebar Icon-wrapper--double--left"
         style="padding-left: 18px"
@@ -55,6 +49,30 @@
           />
         </svg>
         <!-- </div> -->
+      </div>
+
+      <!-- Resize icon -->
+      <div
+        class="Icon-wrapper Icon-wrapper--titlebar Icon-wrapper--double--right"
+        style="padding-right: 5px"
+        @click="winMiniMode"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke="#F6F2EB"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="Icon Icon--miniMode"
+        >
+          <polyline points="4 14 10 14 10 20" />
+          <polyline points="20 10 14 10 14 4" />
+          <line stroke="#F6F2EB" x1="14" y1="10" x2="21" y2="3" />
+          <line stroke="#F6F2EB" x1="3" y1="21" x2="10" y2="14" />
+        </svg>
       </div>
       <div
         class="Icon-wrapper Icon-wrapper--titlebar Icon-wrapper--double--right"
@@ -130,6 +148,10 @@ export default {
 
     winMinimize() {
       ipcRenderer.send('window-minimize', this.minToTray)
+    },
+
+    winMiniMode() {
+      ipcRenderer.send('window-miniMode')
     }
   }
 }
@@ -137,7 +159,8 @@ export default {
 
 <style lang="scss" scoped>
 .Icon--close,
-.Icon--minimize {
+.Icon--minimize,
+.Icon--miniMode {
   & line {
     stroke: $colorBlueGrey;
     transition: $transitionDefault;
@@ -194,7 +217,8 @@ export default {
     background-color: $colorRed;
   }
   &:hover .Icon--close line,
-  &:hover .Icon--minimize line {
+  &:hover .Icon--minimize line,
+  &:hover .Icon--miniMode line {
     stroke: $colorRed;
   }
 }
