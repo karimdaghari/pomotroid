@@ -110,7 +110,97 @@
       </app-timer-dial-mini>
     </div>
     <div stye="flex-grow: 2">
-      <p>Controls sit here</p>
+      <section>
+        <transition name="fade" mode="out-in">
+          <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
+            <div class="Button-icon-wrapper">
+              <svg
+                version="1.2"
+                baseProfile="tiny"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 7.6 15"
+                xml:space="preserve"
+                height="15px"
+                class="Icon--start"
+              >
+                <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="Button"
+            v-if="timerStarted && !timerActive"
+            @click="resumeTimer"
+            :key="'resume'"
+          >
+            <div class="Button-icon-wrapper">
+              <svg
+                version="1.2"
+                baseProfile="tiny"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 7.6 15"
+                xml:space="preserve"
+                height="15px"
+              >
+                <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="Button"
+            v-else-if="timerStarted && timerActive"
+            @click="pauseTimer"
+            :key="'pause'"
+          >
+            <div class="Button-icon-wrapper">
+              <svg
+                version="1.2"
+                baseProfile="tiny"
+                id="Layer_2"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 10.9 18"
+                xml:space="preserve"
+                height="15px"
+                class="Icon--pause"
+              >
+                <line
+                  fill="none"
+                  stroke="#F6F2EB"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  x1="1.5"
+                  y1="1.5"
+                  x2="1.5"
+                  y2="16.5"
+                />
+                <line
+                  fill="none"
+                  stroke="#F6F2EB"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  x1="9.4"
+                  y1="1.5"
+                  x2="9.4"
+                  y2="16.5"
+                />
+              </svg>
+            </div>
+          </div>
+        </transition>
+      </section>
     </div>
   </div>
 </template>
