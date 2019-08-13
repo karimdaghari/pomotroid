@@ -43,6 +43,7 @@
           :style="{ width: calcPercentage(localTimeShortBreak, maxTime) + '%' }"
         ></div>
       </div>
+      <p v-if="localTimeShortBreak > 5" class="Warning">It is best not to exceed 5 minutes</p>
     </div>
 
     <div class="Setting-wrapper">
@@ -63,6 +64,10 @@
           :style="{ width: calcPercentage(localTimeLongBreak, maxTime) + '%' }"
         ></div>
       </div>
+      <p
+        v-if="localTimeLongBreak < 15 || localTimeLongBreak > 30"
+        class="Warning"
+      >It is recommended to stay between 15 - 30 minutes</p>
     </div>
 
     <div class="Setting-wrapper">
