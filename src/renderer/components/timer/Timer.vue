@@ -104,7 +104,7 @@
   </div>
   <section
     v-else
-    style="display: flex; flex-direction: row; padding-left: 18px; padding-right: 18px"
+    style="display: flex; flex-direction: row; padding-left: 18px; padding-right: 18px; align-items: center"
   >
     <div style="display: flex; flex-grow: 1">
       <app-timer-dial-mini :minutes="minutes" :timer="timer" :timerActive="timerActive">
@@ -112,7 +112,9 @@
         <p class="Dial-time" v-else>{{ prettyTime }}</p>
       </app-timer-dial-mini>
     </div>
-    <section style="display: flex; flex-grow: 2">
+    <section
+      style="display: flex; flex-grow: 2; margin-bottom: 18px; align-items: center; justify-content: space-evenly;"
+    >
       <transition name="fade" mode="out-in">
         <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
           <div class="Button-icon-wrapper">
@@ -203,7 +205,7 @@
         </div>
       </transition>
 
-      <div class="Button" style="margin-left: 1em" @click="callForReset">
+      <div class="Button" @click="callForReset">
         <div class="Button-icon-wrapper">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -220,6 +222,10 @@
             <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
           </svg>
         </div>
+      </div>
+
+      <div>
+        <p>{{ round }} / {{ workRounds }} rounds</p>
       </div>
     </section>
   </section>
@@ -258,6 +264,14 @@ export default {
     // store getters
     currentRound() {
       return this.$store.getters.currentRound
+    },
+
+    round() {
+      return this.$store.getters.round
+    },
+
+    workRounds() {
+      return this.$store.getters.workRounds
     },
 
     timeLongBreak() {
