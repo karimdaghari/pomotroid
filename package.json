@@ -4,13 +4,13 @@
   "author": {
     "email": "karim_daghari@outlook.com",
     "name": "Karim Daghari",
-    "url": "https://github.com/splode"
+    "url": "https://github.com/karimdaghari"
   },
   "description": "A simple and visually-pleasing Pomodoro timer",
-  "homepage": "https://github.com/Splode/pomotroid",
+  "homepage": "https://github.com/karimdaghari/pomotroid",
   "license": "MIT",
   "main": "./dist/electron/main.js",
-  "repository": "github:splode/pomotroid",
+  "repository": "github:karimdaghari/pomotroid",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
     "build:win32": "node .electron-vue/build.js && electron-builder --ia32",
@@ -27,7 +27,7 @@
   },
   "build": {
     "productName": "Pomotroid",
-    "appId": "com.splode.pomotroid",
+    "appId": "com.karimdaghari.pomotroid",
     "artifactName": "${productName}-setup-${version}-${arch}.${ext}",
     "directories": {
       "output": "build"
