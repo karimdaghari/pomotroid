@@ -24,7 +24,7 @@ Pomotroid is a simple and customizable Pomodoro timer. It aims to aid your focus
 
 ## Features
 
-- Customizable times and number of rounds -- Sensible defaults are provided tho
+- Customizable times and number of rounds with sensible defaults
 - Persistent window
 - Charming timer alert sounds
 - Desktop notifications
@@ -37,7 +37,7 @@ Future plans for enhancements and development: Check [roadmap](https://github.co
 
 ## Download
 
-Pomotroid is available for Windows 32/64, Mac OSX and Debian/Ubuntu flavored Linux.
+Pomotroid is available for Windows 32/64, MacOS and Debian/Ubuntu flavored Linux.
 
 Download the latest version from the [releases](https://github.com/karimdaghari/pomotroid/releases) page.
 
@@ -69,7 +69,7 @@ npm run build
 
 **Why isn't there any todo feature included ?**
 
-> For context: (original) For the pomodoro timer to be effective, there needs to be a todo list.
+> Context: (original) For the pomodoro technique to be effective, there needs to be a todo list.
 
 I personally am a todo list kinda guy so trust me I'm aware of its importance, however, I've found that having a separate todo app is way better for many reasons, to cite a few:
 
@@ -79,13 +79,9 @@ I personally am a todo list kinda guy so trust me I'm aware of its importance, h
 
 **Why isn't there any stats feature included ?**
 
-Let me make myself clear from the get go, I don't think I will implement a stats feature, not that I hate stats, however, I believe that incorporating stats in such an app would be optimizing productivity for productivity's sake and that's missing the point because in my view, the point of being productive is to become as effective/efficient as possible.
+I believe that incorporating stats in such an app would be optimizing productivity for productivity's sake and that's missing the point. In my view, the point of being productive is to become as effective/efficient as possible.
 
-_What effectiveness/efficiency means depends on the context. For example, in the context of a business, being effective means making money. If you're not making money, you're not efficient period._
-
-**I don't like the design. Can't you change it ?**
-
-I can, but I happen to like it. It's functional and, function > form. So, if you _really_ don't like it, please, by all means fork the repo and add your touch !
+_What effectiveness/efficiency means depends on the context. For example, in the context of a business, being effective means making money. If you're not making money you're not efficient, period._
 
 ## License
 
