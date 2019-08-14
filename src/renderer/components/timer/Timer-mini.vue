@@ -1,110 +1,5 @@
 <template>
-  <div class="Timer-wrapper" v-if="!this.miniMode">
-    <app-audio />
-    <app-tray-icon />
-    <app-timer-dial :minutes="minutes" :timer="timer" :timerActive="timerActive">
-      <p class="Dial-time" v-if="!timerStarted">{{ prettyMinutes }}</p>
-      <p class="Dial-time" v-else>{{ prettyTime }}</p>
-    </app-timer-dial>
-
-    <section class="Container Button-wrapper">
-      <transition name="fade" mode="out-in">
-        <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
-          <div class="Button-icon-wrapper">
-            <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 7.6 15"
-              xml:space="preserve"
-              height="15px"
-              class="Icon--start"
-              style="padding-left: 5px"
-            >
-              <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
-            </svg>
-          </div>
-        </div>
-        <div
-          class="Button"
-          v-if="timerStarted && !timerActive"
-          @click="resumeTimer"
-          :key="'resume'"
-        >
-          <div class="Button-icon-wrapper">
-            <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 7.6 15"
-              xml:space="preserve"
-              height="15px"
-            >
-              <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
-            </svg>
-          </div>
-        </div>
-        <div
-          class="Button"
-          v-else-if="timerStarted && timerActive"
-          @click="pauseTimer"
-          :key="'pause'"
-        >
-          <div class="Button-icon-wrapper">
-            <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_2"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 10.9 18"
-              xml:space="preserve"
-              height="15px"
-              class="Icon--pause"
-            >
-              <line
-                fill="none"
-                stroke="#F6F2EB"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
-                x1="1.5"
-                y1="1.5"
-                x2="1.5"
-                y2="16.5"
-              />
-              <line
-                fill="none"
-                stroke="#F6F2EB"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
-                x1="9.4"
-                y1="1.5"
-                x2="9.4"
-                y2="16.5"
-              />
-            </svg>
-          </div>
-        </div>
-      </transition>
-    </section>
-
-    <app-timer-footer />
-    <app-timer-controller />
-  </div>
   <section
-    v-else
     style="display: flex; flex-direction: row; padding-left: 18px; padding-right: 18px; align-items: center"
   >
     <app-audio />
@@ -222,9 +117,7 @@ import Timer from '@/utils/timer'
 import appAudio from '@/components/Audio'
 import appTrayIcon from '@/components/TrayIcon'
 import appTimerController from '@/components/timer/Timer-controller'
-import appTimerDial from '@/components/timer/Timer-dial'
-import appTimerFooter from '@/components/timer/Timer-footer'
-import appTimerMini from '@/components/timer/Timer-mini'
+import appTimerDialMini from '@/components/timer/Timer-dial-mini'
 import { EventBus } from '@/utils/event-bus'
 
 export default {
@@ -232,17 +125,31 @@ export default {
     appAudio,
     appTrayIcon,
     appTimerController,
-    appTimerDial,
-    appTimerMini,
-    appTimerFooter
+    appTimerDialMini
+  },
+
+  props: {
+    minutes: {
+      type: Number,
+      default: 1
+    },
+    timer: null,
+    timerActive: {
+      type: Boolean,
+      default: false
+    },
+    timerStarted: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
     return {
-      minutes: 1,
-      timer: null,
-      timerActive: false,
-      timerStarted: false
+      minutes: this.minutes,
+      timer: this.timer,
+      timerActive: this.timerActive,
+      timerStarted: this.timerStarted
     }
   },
 
