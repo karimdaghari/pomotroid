@@ -1,7 +1,6 @@
 <template>
   <div class="Dial-wrapper">
     <slot></slot>
-    <p class="Dial-label" :style="textSize">{{ currentRoundDisplay }}</p>
     <svg
       version="1.2"
       baseProfile="tiny"
@@ -73,8 +72,7 @@ export default {
 
   data() {
     return {
-      dial: null,
-      currentRoundTextLong: null
+      dial: null
     }
   },
 
@@ -98,13 +96,10 @@ export default {
 
     currentRoundDisplay() {
       if (this.currentRound === 'work') {
-        this.currentRoundTextLong = false
         return 'Work'
       } else if (this.currentRound === 'short-break') {
-        this.currentRoundTextLong = true
         return 'Short Break'
       } else if (this.currentRound === 'long-break') {
-        this.currentRoundTextLong = true
         return 'Long Break'
       }
     },
@@ -116,18 +111,6 @@ export default {
         return 'Dial-fill--shortBreak'
       } else if (this.currentRound === 'long-break') {
         return 'Dial-fill--longBreak'
-      }
-    },
-
-    textSize() {
-      if (this.currentRoundTextLong) {
-        return {
-          fontSize: '.55em'
-        }
-      } else {
-        return {
-          fontSize: '.97em'
-        }
       }
     }
   },
@@ -220,14 +203,6 @@ export default {
   position: relative;
 }
 
-.Dial-label {
-  letter-spacing: 0.1em;
-  position: absolute;
-  top: 66%;
-  text-transform: uppercase;
-  font-size: 0.97em;
-}
-
 .Dial-bg {
   stroke: $colorBlueGrey;
 }
@@ -252,5 +227,6 @@ export default {
 
 .Dial-time {
   font-size: 23px !important;
+  top: 37% !important;
 }
 </style>
