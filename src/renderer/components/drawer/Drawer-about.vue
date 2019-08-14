@@ -16,12 +16,7 @@
         xml:space="preserve"
       >
         <g>
-          <circle
-            fill="#2F384B"
-            cx="128"
-            cy="128"
-            r="126.81"
-          />
+          <circle fill="#2F384B" cx="128" cy="128" r="126.81" />
 
           <circle
             fill="none"
@@ -36,13 +31,13 @@
         </g>
       </svg>
       <h2>Pomotroid</h2>
-      <p class="label">Version: {{ version }} <span
-          class="link"
-          @click="openUrl(releaseUrl)"
-        >(release notes)</span></p>
+      <p class="label">
+        Version: {{ version }}
+        <span class="link" @click="openUrl(releaseUrl)">(release notes)</span>
+      </p>
       <p
         class="label link"
-        @click="openUrl('https://github.com/splode/pomotroid')"
+        @click="openUrl('https://github.com/karimdaghari/pomotroid')"
       >License and Documentation</p>
     </section>
   </div>
@@ -62,7 +57,7 @@ export default {
   },
   computed: {
     releaseUrl() {
-      return `https://github.com/Splode/pomotroid/releases/tag/v${this.version}`
+      return `https://github.com/karim/pomotroid/releases/tag/v${this.version}`
     }
   },
   methods: {
