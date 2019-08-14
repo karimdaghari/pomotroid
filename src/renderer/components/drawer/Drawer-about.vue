@@ -57,7 +57,7 @@ export default {
   },
   computed: {
     releaseUrl() {
-      return `https://github.com/karim/pomotroid/releases/tag/v${this.version}`
+      return `https://github.com/karimdaghari/pomotroid/releases/tag/v${this.version}`
     }
   },
   methods: {
