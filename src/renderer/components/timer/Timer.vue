@@ -23,6 +23,7 @@
               xml:space="preserve"
               height="15px"
               class="Icon--start"
+              style="padding-left: 5px"
             >
               <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
             </svg>
@@ -117,21 +118,22 @@
     >
       <transition name="fade" mode="out-in">
         <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
+          <!-- Play icon -->
           <div class="Button-icon-wrapper">
             <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 7.6 15"
-              xml:space="preserve"
-              height="15px"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#F6F2EB"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
               class="Icon--start"
+              style="padding-left: 5px"
             >
-              <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
+              <polygon fill="#F6F2EB" points="5 3 19 12 5 21 5 3" />
             </svg>
           </div>
         </div>
@@ -141,20 +143,21 @@
           @click="resumeTimer"
           :key="'resume'"
         >
+          <!-- Resume icon; same one as Play icon -->
           <div class="Button-icon-wrapper">
             <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 7.6 15"
-              xml:space="preserve"
-              height="15px"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#F6F2EB"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="padding-left: 5px"
             >
-              <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
+              <polygon fill="#F6F2EB" points="5 3 19 12 5 21 5 3" />
             </svg>
           </div>
         </div>
@@ -164,42 +167,22 @@
           @click="pauseTimer"
           :key="'pause'"
         >
+          <!-- Pause icon -->
           <div class="Button-icon-wrapper">
             <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_2"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 10.9 18"
-              xml:space="preserve"
-              height="15px"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#F6F2EB"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
               class="Icon--pause"
             >
-              <line
-                fill="none"
-                stroke="#F6F2EB"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
-                x1="1.5"
-                y1="1.5"
-                x2="1.5"
-                y2="16.5"
-              />
-              <line
-                fill="none"
-                stroke="#F6F2EB"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
-                x1="9.4"
-                y1="1.5"
-                x2="9.4"
-                y2="16.5"
-              />
+              <rect fill="none" stroke="#F6F2EB" x="6" y="4" width="4" height="16" />
+              <rect fill="none" stroke="#F6F2EB" x="14" y="4" width="4" height="16" />
             </svg>
           </div>
         </div>
@@ -426,15 +409,15 @@ export default {
   width: 50px;
   height: 50px;
   -webkit-app-region: no-drag;
-  &:hover {
-    background-color: $colorLightNavy;
-    & .Icon--pause line {
-      stroke: $colorRed;
-    }
-    & .Icon--start polygon {
-      fill: $colorRed;
-    }
-  }
+  // &:hover {
+  //   background-color: $colorLightNavy;
+  //   & .Icon--pause line {
+  //     stroke: $colorRed;
+  //   }
+  //   & .Icon--start polygon {
+  //     fill: $colorRed;
+  //   }
+  // }
 }
 
 .Button-wrapper {
