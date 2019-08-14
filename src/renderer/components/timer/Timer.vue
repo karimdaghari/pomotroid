@@ -103,21 +103,16 @@
     <app-timer-footer />
     <app-timer-controller />
   </div>
-  <section
-    v-else
-    style="display: flex; flex-direction: row; padding-left: 18px; padding-right: 18px; align-items: center"
-  >
+  <section v-else class="MiniTimer-wrapper">
     <app-audio />
     <app-tray-icon />
-    <div style="display: flex; flex-grow: 1">
+    <div class="MiniTimer-dial-wrapper">
       <app-timer-dial-mini :minutes="minutes" :timer="timer" :timerActive="timerActive">
         <p class="Dial-time" v-if="!timerStarted">{{ prettyMinutes }}</p>
         <p class="Dial-time" v-else>{{ prettyTime }}</p>
       </app-timer-dial-mini>
     </div>
-    <section
-      style="display: flex; flex-grow: 2; margin-bottom: 18px; align-items: center; justify-content: space-evenly;"
-    >
+    <section class="MiniTimer-controls-wrapper">
       <transition name="fade" mode="out-in">
         <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
           <!-- Play icon -->
@@ -223,8 +218,8 @@ import appAudio from '@/components/Audio'
 import appTrayIcon from '@/components/TrayIcon'
 import appTimerController from '@/components/timer/Timer-controller'
 import appTimerDial from '@/components/timer/Timer-dial'
+import appTimerDialMini from '@/components/timer/Timer-dial-mini'
 import appTimerFooter from '@/components/timer/Timer-footer'
-import appTimerMini from '@/components/timer/Timer-mini'
 import { EventBus } from '@/utils/event-bus'
 
 export default {
@@ -233,7 +228,7 @@ export default {
     appTrayIcon,
     appTimerController,
     appTimerDial,
-    appTimerMini,
+    appTimerDialMini,
     appTimerFooter
   },
 
@@ -447,5 +442,26 @@ export default {
 .Timer-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.MiniTimer-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding-left: 18px;
+  padding-right: 18px;
+  align-items: center;
+}
+
+.MiniTimer-dial-wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
+.MiniTimer-controls-wrapper {
+  display: flex;
+  flex-grow: 2;
+  margin-bottom: 18px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 </style>
