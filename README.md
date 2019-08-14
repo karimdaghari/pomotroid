@@ -33,7 +33,7 @@ Pomotroid is a simple and customizable Pomodoro timer. It aims to aid your focus
 
 ## Roadmap
 
-Future plans for enhancements and development: Check issue #2
+Future plans for enhancements and development: Check issue [#2](#2)
 
 ## Download
 
