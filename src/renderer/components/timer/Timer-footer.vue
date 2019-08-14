@@ -185,6 +185,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.Container {
+  padding: 18px 18px;
+}
+
 .Footer {
   align-items: center;
   display: flex;

@@ -74,7 +74,7 @@ ipcMain.on('window-minimize', (event, arg) => {
 
 ipcMain.on('window-miniMode', (event, arg) => {
   if (arg) {
-    mainWindow.setBounds({ width: 360, height: 480 })
+    mainWindow.setBounds({ width: 360, height: 518 })
   } else {
     mainWindow.setBounds({ width: 450, height: 150 })
   }
@@ -105,10 +105,10 @@ function createWindow() {
     fullscreenable: false,
     frame: false,
     icon: path.join(__static, 'icon.png'),
-    resizable: false,
+    resizable: true,
     useContentSize: true,
     width: 360,
-    height: 478,
+    height: 518,
     webPreferences: {
       nodeIntegration: true
     }
