@@ -25,7 +25,7 @@ Pomotroid is a simple and customizable Pomodoro timer. It aims to aid your focus
 ## Features
 
 - Customizable times and number of rounds -- Sensible defaults are provided tho
-- Persistant window
+- Persistent window
 - Charming timer alert sounds
 - Desktop notifications
 - Minimize to tray
@@ -71,7 +71,7 @@ npm run build
 
 > For context: (original) For the pomodoro timer to be effective, there needs to be a todo list.
 
-I personally am a todo list kinda guy so trust me I'm aware of its importance, however, I've found that having a seperate todo app is way better for many reasons, to cite a few:
+I personally am a todo list kinda guy so trust me I'm aware of its importance, however, I've found that having a separate todo app is way better for many reasons, to cite a few:
 
 1. Checking a todo on a list makes your brain secrete dopamine,
 2. You're likely to have more than one **list** which defeats the purpose: monotasking,
@@ -81,7 +81,7 @@ I personally am a todo list kinda guy so trust me I'm aware of its importance, h
 
 Let me make myself clear from the get go, I don't think I will implement a stats feature, not that I hate stats, however, I believe that incorporating stats in such an app would be optimizing productivity for productivity's sake and that's missing the point because in my view, the point of being productive is to become as effective/efficient as possible.
 
-_What effectiveness/effeciency means depends on the context. For example, in the context of a business, being effective means making money. If you're not making money, you're not efficient period._
+_What effectiveness/efficiency means depends on the context. For example, in the context of a business, being effective means making money. If you're not making money, you're not efficient period._
 
 **I don't like the design. Can't you change it ?**
 
