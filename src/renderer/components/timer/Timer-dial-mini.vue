@@ -1,7 +1,7 @@
 <template>
   <div class="Dial-wrapper">
     <slot></slot>
-    <p class="Dial-label">{{ currentRoundDisplay }}</p>
+    <p class="Dial-label" :style="textSize">{{ currentRoundDisplay }}</p>
     <svg
       version="1.2"
       baseProfile="tiny"
@@ -12,8 +12,8 @@
       y="0px"
       viewBox="0 0 230 230"
       xml:space="preserve"
-      width="100"
-      height="90"
+      width="110"
+      height="110"
       class="Dial-fill"
       :class="dialClass"
     >
@@ -35,8 +35,8 @@
       y="0px"
       viewBox="0 0 230 230"
       xml:space="preserve"
-      width="100"
-      height="90"
+      width="110"
+      height="110"
       class="Dial-bg"
     >
       <path
@@ -73,7 +73,8 @@ export default {
 
   data() {
     return {
-      dial: null
+      dial: null,
+      currentRoundTextLong: null
     }
   },
 
@@ -97,10 +98,13 @@ export default {
 
     currentRoundDisplay() {
       if (this.currentRound === 'work') {
+        this.currentRoundTextLong = false
         return 'Work'
       } else if (this.currentRound === 'short-break') {
+        this.currentRoundTextLong = true
         return 'Short Break'
       } else if (this.currentRound === 'long-break') {
+        this.currentRoundTextLong = true
         return 'Long Break'
       }
     },
@@ -112,6 +116,18 @@ export default {
         return 'Dial-fill--shortBreak'
       } else if (this.currentRound === 'long-break') {
         return 'Dial-fill--longBreak'
+      }
+    },
+
+    textSize() {
+      if (this.currentRoundTextLong) {
+        return {
+          fontSize: '.55em'
+        }
+      } else {
+        return {
+          fontSize: '.97em'
+        }
       }
     }
   },
@@ -200,7 +216,7 @@ export default {
 .Dial-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: -20px;
+  margin-top: -36px;
   position: relative;
 }
 
@@ -209,7 +225,7 @@ export default {
   position: absolute;
   top: 66%;
   text-transform: uppercase;
-  font-size: 0.8em;
+  font-size: 0.97em;
 }
 
 .Dial-bg {
@@ -235,7 +251,6 @@ export default {
 }
 
 .Dial-time {
-  font-size: 1.2rem !important;
-  top: 30% !important;
+  font-size: 23px !important;
 }
 </style>
