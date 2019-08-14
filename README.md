@@ -4,6 +4,9 @@
 <div align="center">
   <img alt="Pomotroid in action" src=".github/images/pomotroid-screens.jpg" width="800px">
 </div>
+<div align="center">
+  <img alt="Pomotroid mini mode" src=".github/images/mini-mode.png">
+</div>
 
 <p align="center">Simple and visually-pleasing Pomodoro timer.</p>
 
@@ -11,30 +14,32 @@
 
 [![Build Status](https://travis-ci.org/karimdaghari/pomotroid.svg?branch=master)](https://travis-ci.org/karimdaghari/pomotroid)
 
+## Note
+
+This a fork of [Splode/Pomotroid](https://github.com/Splode/pomotroid). The project has been inactive for over a year so I guess it's safe to assume it's dead. But that's the beauty of FOSS ! It's about passing the baton.
+
 ## Overview
 
-Pomotroid is a simple and configurable Pomodoro timer. It aims to provide a visually-pleasing and reliable way to track productivity using the Pomodoro Technique.
-
-Pomotroid is in its early stages, so feedback and contributions are welcome and appreciated! :seedling:
+Pomotroid is a simple and customizable Pomodoro timer. It aims to aid your focus.
 
 ## Features
 
-- Customize times and number of rounds (persistent)
-- Charming timer alert sounds (optional)
-- Desktop notifications (optional)
-- Minimize to tray (optional)
+- Customizable times and number of rounds -- Sensible defaults are provided tho
+- Persistant window
+- Charming timer alert sounds
+- Desktop notifications
+- Minimize to tray
+- Mini-mode
 
 ## Roadmap
 
-:memo: Future plans for enhancements and development:
-
-- Mini-mode
+Future plans for enhancements and development: Check issue #2
 
 ## Download
 
 Pomotroid is available for Windows 32/64, Mac OSX and Debian/Ubuntu flavored Linux.
 
-Download the latest version from the [releases](https://github.com/Splode/pomotroid/releases) page.
+Download the latest version from the [releases](https://github.com/karimdaghari/pomotroid/releases) page.
 
 ## Technical
 
@@ -53,8 +58,35 @@ npm run dev
 
 # build Pomotroid for production
 npm run build
+
+# Locally:
+# Linux: builds for Linux and OS X
+# Windows: builds only for Windows
+# But you should be using a CI anyway
 ```
+
+## Q & A
+
+**Why isn't there any todo feature included ?**
+
+> For context: (original) For the pomodoro timer to be effective, there needs to be a todo list.
+
+I personally am a todo list kinda guy so trust me I'm aware of its importance, however, I've found that having a seperate todo app is way better for many reasons, to cite a few:
+
+1. Checking a todo on a list makes your brain secrete dopamine,
+2. You're likely to have more than one **list** which defeats the purpose: monotasking,
+3. The app would become bloated as it'll actually become two apps in one: Pomodoro + Todo.
+
+**Why isn't there any stats feature included ?**
+
+Let me make myself clear from the get go, I don't think I will implement a stats feature, not that I hate stats, however, I believe that incorporating stats in such an app would be optimizing productivity for productivity's sake and that's missing the point because in my view, the point of being productive is to become as effective/efficient as possible.
+
+_What effectiveness/effeciency means depends on the context. For example, in the context of a business, being effective means making money. If you're not making money, you're not efficient period._
+
+**I don't like the design. Can't you change it ?**
+
+I can, but I happen to like it. It's functional and, function > form. So, if you _really_ don't like it, please, by all means fork the repo and add your touch !
 
 ## License
 
-MIT &copy; [Christopher Murphy](https://github.com/Splode)
+MIT &copy; [Karim Daghari](https://github.com/karimdaghari)
