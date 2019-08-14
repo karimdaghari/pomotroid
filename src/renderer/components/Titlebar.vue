@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <h1 class="Title" :style="switchRight">Pomotroid</h1>
+    <h1 class="Title">Pomotroid</h1>
 
     <div class="Icon-group" style="position: absolute; top: 0; right: 0;">
       <div
@@ -161,16 +161,6 @@ export default {
 
     miniMode() {
       return this.$store.getters.miniMode
-    },
-
-    switchRight() {
-      if (this.miniMode) {
-        return {
-          paddingRight: '72%'
-        }
-      } else {
-        return {}
-      }
     }
   },
 
