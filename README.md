@@ -5,7 +5,7 @@
   <img alt="Pomotroid in action" src=".github/images/pomotroid-screens.jpg" width="800px">
 </div>
 <div align="center">
-  <img alt="Pomotroid mini mode" src=".github/images/mini-mode.png">
+  <img alt="Pomotroid mini mode" src=".github/images/mini-mode.jpg">
 </div>
 
 <p align="center">Simple and visually-pleasing Pomodoro timer.</p>
