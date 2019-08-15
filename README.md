@@ -4,9 +4,6 @@
 <div align="center">
   <img alt="Pomotroid in action" src=".github/images/pomotroid-screens.jpg" width="800px">
 </div>
-<div align="center">
-  <img alt="Pomotroid mini mode" src=".github/images/mini-mode.jpg">
-</div>
 
 <p align="center">Simple and visually-pleasing Pomodoro timer.</p>
 
@@ -82,6 +79,16 @@ I personally am a todo list kinda guy so trust me I'm aware of its importance, h
 I believe that incorporating stats in such an app would be optimizing productivity for productivity's sake and that's missing the point. In my view, the point of being productive is to become as effective/efficient as possible.
 
 _What effectiveness/efficiency means depends on the context. For example, in the context of a business, being effective means making money. If you're not making money you're not efficient, period._
+
+**Why Vue? Why not React?**
+
+TL;DR: Because out of the four options (Angular, React, Vue, Svelte) I like it the most.
+
+Actually before forking this project, I started developing an app with Angular and while I personally loved the dev experience, Angular is pretty **HEAVY**, on top of that, the community isn't as big as Vue's or React's. Which left me to consider either Vue or React, and while React is the most popular of the three, it simply didn't _feel_ right.
+
+**For such a small app, why does it use so much CPU?**
+
+In order for it to be cross-platform, the app is developed on electron which trades performance for flexibility.
 
 ## License
 
