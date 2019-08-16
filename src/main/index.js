@@ -7,6 +7,8 @@ const path = require('path')
 
 const localStore = createLocalStore()
 
+const Positioner = require('electron-positioner')
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -73,10 +75,18 @@ ipcMain.on('window-minimize', (event, arg) => {
 })
 
 ipcMain.on('window-miniMode', (event, arg) => {
+  const positioner = new Positioner(mainWindow)
+  const os = process.platform
   if (arg) {
     mainWindow.setBounds({ width: 360, height: 518 })
+    positioner.move('center')
   } else {
     mainWindow.setBounds({ width: 450, height: 150 })
+    if (os === 'win32') {
+      positioner.move('bottomRight')
+    } else {
+      positioner.move('topRight')
+    }
   }
 })
 
@@ -105,7 +115,7 @@ function createWindow() {
     fullscreenable: false,
     frame: false,
     icon: path.join(__static, 'icon.png'),
-    resizable: true,
+    resizable: false,
     useContentSize: true,
     width: 360,
     height: 518,
