@@ -25,16 +25,32 @@
         :class="notifications ? 'is-active' : 'is-inactive'"
       ></div>
     </div>
-    <div
-      class="Setting-wrapper"
-      v-if="os === 'win32'"
-    >
+    <div class="Setting-wrapper" v-if="os === 'win32'">
       <p class="Setting-title">Minimize to Tray</p>
       <div
         class="Checkbox"
         @click="selectMinToTray"
         :class="minToTray ? 'is-active' : 'is-inactive'"
       ></div>
+    </div>
+    <div class="Setting-wrapper">
+      <p class="Setting-title">Opacity</p>
+      <p>{{ localOpacity }}</p>
+      <div class="Slider-wrapper">
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.05"
+          class="Slider Slider--red"
+          v-model.number="localOpacity"
+        />
+        <!-- @change="setTimeWork($event, 'work')" -->
+        <div
+          class="Slider-bar Slider-bar--red"
+          :style="{ width: calcPercentage(localOpacity, 1) + '%' }"
+        ></div>
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +61,11 @@ import { ipcRenderer } from 'electron'
 export default {
   name: 'Drawer-settings',
 
+  data() {
+    return {
+      localOpacity: 0.95
+    }
+  },
   computed: {
     alwaysOnTop() {
       return this.$store.getters.alwaysOnTop
@@ -104,6 +125,10 @@ export default {
       }
       this.$store.dispatch('setSetting', payload)
       this.$store.dispatch('setViewState', payload)
+    },
+
+    calcPercentage(val, max) {
+      return (val / max) * 100
     }
   }
 }
@@ -144,5 +169,9 @@ export default {
   color: $colorBlueGrey;
   font-size: 14px;
   letter-spacing: 0.05em;
+}
+
+.Slider-wrapper {
+  bottom: 3px;
 }
 </style>
