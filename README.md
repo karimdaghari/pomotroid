@@ -83,9 +83,9 @@ _What effectiveness/efficiency means depends on the context. For example, in the
 
 **Why Vue? Why not React?**
 
-TL;DR: Because out of the four options (Angular, React, Vue, Svelte) I like it the most.
+TL;DR: Because out of the four options (Angular, React, Vue, Svelte) it's the one I like it the most.
 
-Actually before forking this project, I started developing an app with Angular and while I personally loved the dev experience, Angular is pretty **HEAVY**, on top of that, the community isn't as big as Vue's or React's. Which left me to consider either Vue or React, and while React is the most popular of the three, it simply didn't _feel_ right.
+Actually before forking this project, I started developing an app with Angular and while I personally loved the dev experience, I have to admit that it's pretty heavy (but then again, I have a pretty dated laptop), on top of that, the community isn't as big as Vue's or React's. Which left me with either Vue or React, and while React is the most popular of the four, it simply didn't _feel_ right. Svelte, while promising, the ecosystem is still not there yet.
 
 **For such a small app, why does it use so much CPU?**
 
