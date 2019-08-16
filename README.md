@@ -10,6 +10,7 @@
 ---
 
 [![Build Status](https://travis-ci.org/karimdaghari/pomotroid.svg?branch=master)](https://travis-ci.org/karimdaghari/pomotroid)
+[![Build status](https://ci.appveyor.com/api/projects/status/i228k21b3mxqdo7i/branch/master?svg=true)](https://ci.appveyor.com/project/karimdaghari/pomotroid/branch/master)
 
 ## Note
 
