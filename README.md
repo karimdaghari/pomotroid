@@ -65,7 +65,7 @@ npm run build
 
 ## Q & A
 
-**Why isn't there any todo feature included ?**
+**Why isn't there any todo feature included?**
 
 > Context: (original) For the pomodoro technique to be effective, there needs to be a todo list.
 
@@ -75,7 +75,7 @@ I personally am a todo list kinda guy so trust me I'm aware of its importance, h
 2. You're likely to have more than one **list** which defeats the purpose: monotasking,
 3. The app would become bloated as it'll actually become two apps in one: Pomodoro + Todo.
 
-**Why isn't there any stats feature included ?**
+**Why isn't there any stats feature included?**
 
 I believe that incorporating stats in such an app would be optimizing productivity for productivity's sake and that's missing the point. In my view, the point of being productive is to become as effective/efficient as possible.
 
