@@ -80,7 +80,6 @@ ipcMain.on('window-miniMode', (event, arg) => {
   if (arg) {
     mainWindow.setBounds({ width: 360, height: 518 })
     positioner.move('center')
-    mainWindow.setOpacity(1)
   } else {
     mainWindow.setBounds({ width: 450, height: 150 })
     if (os === 'win32') {
@@ -88,8 +87,11 @@ ipcMain.on('window-miniMode', (event, arg) => {
     } else {
       positioner.move('topRight')
     }
-    mainWindow.setOpacity(0.9)
   }
+})
+
+ipcMain.on('setOpacity', (event, arg) => {
+  mainWindow.setOpacity(arg)
 })
 
 ipcMain.on('tray-icon-update', (event, image) => {
