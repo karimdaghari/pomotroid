@@ -15,12 +15,13 @@ function generateSettings() {
     autoStartTimer: true,
     minToTray: false,
     notifications: true,
-    miniMode: false,
     workRounds: 4,
     timeLongBreak: 20,
     timeShortBreak: 5,
     timeWork: 25,
-    volume: 100
+    volume: 100,
+    miniMode: false,
+    opacity: 0.95
   }
 }
 

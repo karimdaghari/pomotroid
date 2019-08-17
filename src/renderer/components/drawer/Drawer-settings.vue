@@ -44,8 +44,8 @@
           step="0.05"
           class="Slider Slider--red"
           v-model.number="localOpacity"
+          @change="setOpacity()"
         />
-        <!-- @change="setTimeWork($event, 'work')" -->
         <div
           class="Slider-bar Slider-bar--red"
           :style="{ width: calcPercentage(localOpacity, 1) + '%' }"
@@ -63,9 +63,10 @@ export default {
 
   data() {
     return {
-      localOpacity: 0.95
+      localOpacity: this.opacity
     }
   },
+
   computed: {
     alwaysOnTop() {
       return this.$store.getters.alwaysOnTop
@@ -85,6 +86,10 @@ export default {
 
     os() {
       return this.$store.getters.os
+    },
+
+    opacity() {
+      return this.$store.getters.opacity
     }
   },
 
@@ -124,6 +129,15 @@ export default {
         val: !this.notifications
       }
       this.$store.dispatch('setSetting', payload)
+      this.$store.dispatch('setViewState', payload)
+    },
+
+    setOpacity() {
+      const payload = {
+        key: 'opacity',
+        val: this.localOpacity
+      }
+      ipcRenderer.send('setOpacity', payload.val)
       this.$store.dispatch('setViewState', payload)
     },
 

@@ -10,8 +10,9 @@ const state = {
   alwaysOnTop: localStore.get('alwaysOnTop'),
   minToTray: localStore.get('minToTray'),
   notifications: localStore.get('notifications'),
+  os: process.platform,
   miniMode: localStore.get('miniMode'),
-  os: process.platform
+  opacity: localStore.get('opacity')
 }
 
 const getters = {
@@ -39,12 +40,16 @@ const getters = {
     return state.notifications
   },
 
+  os() {
+    return state.os
+  },
+
   miniMode() {
     return state.miniMode
   },
 
-  os() {
-    return state.os
+  opacity() {
+    return state.opacity
   }
 }
 
