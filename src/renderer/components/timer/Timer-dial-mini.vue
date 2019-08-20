@@ -55,21 +55,6 @@ import { EventBus } from '@/utils/event-bus'
 import { ipcRenderer } from 'electron'
 
 export default {
-  props: {
-    minutes: {
-      type: Number,
-      required: true
-    },
-    timer: {
-      type: Object | null,
-      required: true
-    },
-    timerActive: {
-      type: Boolean,
-      required: true
-    }
-  },
-
   data() {
     return {
       dial: null
@@ -157,11 +142,7 @@ export default {
 
   mounted() {
     // register listener for window-restore events
-    ipcRenderer.on('win-restore', (event, arg) => {
-      this.handleFocus()
-    })
-    // register listener for window-show events
-    ipcRenderer.on('win-show', (event, arg) => {
+    ipcRenderer.on('window-minimize', (event, arg) => {
       this.handleFocus()
     })
 

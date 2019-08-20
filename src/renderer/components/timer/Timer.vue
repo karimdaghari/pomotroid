@@ -1,215 +1,216 @@
 <template>
-  <div class="Timer-wrapper" v-if="!this.miniMode">
+  <div>
     <app-audio />
     <app-tray-icon />
-    <app-timer-dial :minutes="minutes" :timer="timer" :timerActive="timerActive">
-      <p class="Dial-time" v-if="!timerStarted">{{ prettyMinutes }}</p>
-      <p class="Dial-time" v-else>{{ prettyTime }}</p>
-    </app-timer-dial>
 
-    <section class="Container Button-wrapper">
-      <transition name="fade" mode="out-in">
-        <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
-          <div class="Button-icon-wrapper">
-            <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 7.6 15"
-              xml:space="preserve"
-              height="15px"
-              class="Icon--start"
-              style="padding-left: 5px"
-            >
-              <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
-            </svg>
-          </div>
-        </div>
-        <div
-          class="Button"
-          v-if="timerStarted && !timerActive"
-          @click="resumeTimer"
-          :key="'resume'"
-        >
-          <div class="Button-icon-wrapper">
-            <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 7.6 15"
-              xml:space="preserve"
-              height="15px"
-            >
-              <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
-            </svg>
-          </div>
-        </div>
-        <div
-          class="Button"
-          v-else-if="timerStarted && timerActive"
-          @click="pauseTimer"
-          :key="'pause'"
-        >
-          <div class="Button-icon-wrapper">
-            <svg
-              version="1.2"
-              baseProfile="tiny"
-              id="Layer_2"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 10.9 18"
-              xml:space="preserve"
-              height="15px"
-              class="Icon--pause"
-            >
-              <line
-                fill="none"
-                stroke="#F6F2EB"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
-                x1="1.5"
-                y1="1.5"
-                x2="1.5"
-                y2="16.5"
-              />
-              <line
-                fill="none"
-                stroke="#F6F2EB"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
-                x1="9.4"
-                y1="1.5"
-                x2="9.4"
-                y2="16.5"
-              />
-            </svg>
-          </div>
-        </div>
-      </transition>
-    </section>
+    <div class="Timer-wrapper" v-show="!this.miniMode">
+      <app-timer-dial :minutes="minutes" :timer="timer" :timerActive="timerActive">
+        <p class="Dial-time" v-if="!timerStarted">{{ prettyMinutes }}</p>
+        <p class="Dial-time" v-else>{{ prettyTime }}</p>
+      </app-timer-dial>
 
-    <app-timer-footer />
-    <app-timer-controller />
-  </div>
-  <section v-else class="MiniTimer-wrapper">
-    <app-audio />
-    <app-tray-icon />
-    <div class="MiniTimer-dial-wrapper">
-      <app-timer-dial-mini :minutes="minutes" :timer="timer" :timerActive="timerActive">
+      <section class="Container Button-wrapper">
+        <transition name="fade" mode="out-in">
+          <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
+            <div class="Button-icon-wrapper">
+              <svg
+                version="1.2"
+                baseProfile="tiny"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 7.6 15"
+                xml:space="preserve"
+                height="15px"
+                class="Icon--start"
+                style="padding-left: 5px"
+              >
+                <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="Button"
+            v-if="timerStarted && !timerActive"
+            @click="resumeTimer"
+            :key="'resume'"
+          >
+            <div class="Button-icon-wrapper">
+              <svg
+                version="1.2"
+                baseProfile="tiny"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 7.6 15"
+                xml:space="preserve"
+                height="15px"
+              >
+                <polygon fill="#F6F2EB" points="0,0 0,15 7.6,7.4 " />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="Button"
+            v-else-if="timerStarted && timerActive"
+            @click="pauseTimer"
+            :key="'pause'"
+          >
+            <div class="Button-icon-wrapper">
+              <svg
+                version="1.2"
+                baseProfile="tiny"
+                id="Layer_2"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 10.9 18"
+                xml:space="preserve"
+                height="15px"
+                class="Icon--pause"
+              >
+                <line
+                  fill="none"
+                  stroke="#F6F2EB"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  x1="1.5"
+                  y1="1.5"
+                  x2="1.5"
+                  y2="16.5"
+                />
+                <line
+                  fill="none"
+                  stroke="#F6F2EB"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  x1="9.4"
+                  y1="1.5"
+                  x2="9.4"
+                  y2="16.5"
+                />
+              </svg>
+            </div>
+          </div>
+        </transition>
+      </section>
+
+      <app-timer-footer />
+    </div>
+
+    <section v-show="this.miniMode" class="MiniTimer-wrapper">
+      <!-- Mini dial -->
+      <app-timer-dial-mini>
         <p class="Dial-time" v-if="!timerStarted">{{ prettyMinutes }}</p>
         <p class="Dial-time" v-else>{{ prettyTime }}</p>
       </app-timer-dial-mini>
-    </div>
-    <section class="MiniTimer-controls-wrapper">
-      <transition name="fade" mode="out-in">
-        <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
-          <!-- Play icon -->
-          <div class="Button-icon-wrapper">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#F6F2EB"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="Icon--start"
-              style="padding-left: 5px"
-            >
-              <polygon fill="#F6F2EB" points="5 3 19 12 5 21 5 3" />
-            </svg>
-          </div>
-        </div>
-        <div
-          class="Button"
-          v-if="timerStarted && !timerActive"
-          @click="resumeTimer"
-          :key="'resume'"
-        >
-          <!-- Resume icon; same one as Play icon -->
-          <div class="Button-icon-wrapper">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#F6F2EB"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              style="padding-left: 5px"
-            >
-              <polygon fill="#F6F2EB" points="5 3 19 12 5 21 5 3" />
-            </svg>
-          </div>
-        </div>
-        <div
-          class="Button"
-          v-else-if="timerStarted && timerActive"
-          @click="pauseTimer"
-          :key="'pause'"
-        >
-          <!-- Pause icon -->
-          <div class="Button-icon-wrapper">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#F6F2EB"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="Icon--pause"
-            >
-              <rect fill="none" stroke="#F6F2EB" x="6" y="4" width="4" height="16" />
-              <rect fill="none" stroke="#F6F2EB" x="14" y="4" width="4" height="16" />
-            </svg>
-          </div>
-        </div>
-      </transition>
 
-      <div class="Button" @click="callForReset">
-        <div class="Button-icon-wrapper">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#F6F2EB"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+      <section class="MiniTimer-controls-wrapper">
+        <transition name="fade" mode="out-in">
+          <div class="Button" v-if="!timerStarted" @click="startTimer" :key="'start'">
+            <!-- Play icon -->
+            <div class="Button-icon-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#F6F2EB"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="Icon--start"
+                style="padding-left: 5px"
+              >
+                <polygon fill="#F6F2EB" points="5 3 19 12 5 21 5 3" />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="Button"
+            v-if="timerStarted && !timerActive"
+            @click="resumeTimer"
+            :key="'resume'"
           >
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-          </svg>
-        </div>
-      </div>
+            <!-- Resume icon; same one as Play icon -->
+            <div class="Button-icon-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#F6F2EB"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="padding-left: 5px"
+              >
+                <polygon fill="#F6F2EB" points="5 3 19 12 5 21 5 3" />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="Button"
+            v-else-if="timerStarted && timerActive"
+            @click="pauseTimer"
+            :key="'pause'"
+          >
+            <!-- Pause icon -->
+            <div class="Button-icon-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#F6F2EB"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="Icon--pause"
+              >
+                <rect fill="none" stroke="#F6F2EB" x="6" y="4" width="4" height="16" />
+                <rect fill="none" stroke="#F6F2EB" x="14" y="4" width="4" height="16" />
+              </svg>
+            </div>
+          </div>
+        </transition>
 
-      <div>
-        <p>{{ round }} / {{ workRounds }} rounds</p>
-      </div>
+        <div class="Button" @click="callForReset">
+          <div class="Button-icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#F6F2EB"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            </svg>
+          </div>
+        </div>
+
+        <div>
+          <p>{{ round }} / {{ workRounds }} rounds</p>
+        </div>
+      </section>
     </section>
 
     <app-timer-controller />
-  </section>
+  </div>
 </template>
 
 <script>
@@ -228,8 +229,8 @@ export default {
     appTrayIcon,
     appTimerController,
     appTimerDial,
-    appTimerDialMini,
-    appTimerFooter
+    appTimerFooter,
+    appTimerDialMini
   },
 
   data() {
