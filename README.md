@@ -93,4 +93,4 @@ In order for it to be cross-platform, the app is developed on electron which tra
 
 ## License
 
-MIT &copy; [Karim Daghari](https://github.com/karimdaghari)
+MIT &copy; [Karim Daghari](https://github.com/kaghari)
