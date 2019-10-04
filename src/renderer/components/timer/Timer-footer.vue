@@ -2,7 +2,7 @@
   <section class="Container Footer">
     <div class="Round-wrapper">
       <p>{{ round + '/' + workRounds }}</p>
-      <p class="TextButton" @click="callForReset">Reset</p>
+      <p class="TextButton" @click="callForReset">Stop</p>
     </div>
     <div class="Icon-group" style="position: absolute; right: 0;">
       <!-- skip -->
