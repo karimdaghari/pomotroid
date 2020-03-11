@@ -1,3 +1,7 @@
+# DEPRECATION ALERT
+
+Head over to the original repo (https://github.com/Splode/pomotroid) as it has feature parity with this one.
+
 <div align="center">
   <img alt="Pomotroid" src=".github/images/pomotroid-title.png" width="800px">
 </div>
